@@ -1,25 +1,32 @@
-from flask import Flask, render_template, request, jsonify
+import os
 import requests
+import json
+from flask import Flask, render_template, request, jsonify
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 
 # Hugging Face API setup
 API_URL = "https://api-inference.huggingface.co/models/deepset/roberta-base-squad2"
-headers = {"Authorization": "Bearer REMOVED_SECRET"}  # paste your token here
+HF_API_KEY = os.getenv("HF_TOKEN")  # Reads from .env
+headers = {"Authorization": f"Bearer {HF_API_KEY}"}
 
 def ask_huggingface(question):
     context = """
-Iron Lady offers multiple leadership programs including workshops, career 
-accelerators, and mentoring. The duration varies: short workshops last a few 
-weeks, while full programs run 3-6 months. Programs are online, with some 
-offline events. Certificates are awarded upon completion. Mentors are industry 
-leaders, certified coaches, and experienced professionals.
-"""
+    Iron Lady offers multiple leadership programs including workshops, career 
+    accelerators, and mentoring. The duration varies: short workshops last a few 
+    weeks, while full programs run 3-6 months. Programs are online, with some 
+    offline events. Certificates are awarded upon completion. Mentors are industry 
+    leaders, certified coaches, and experienced professionals.
+    """
 
     payload = {"inputs": {"question": question, "context": context}}
     response = requests.post(API_URL, headers=headers, json=payload)
 
-    # 👇 Debug log (forces display in PowerShell)
+    # Debug log for development
     print("🔍 Hugging Face raw response:", response.text)
 
     try:
@@ -32,8 +39,6 @@ leaders, certified coaches, and experienced professionals.
     except Exception as e:
         print("⚠️ Hugging Face error:", e)
         return "Error: Could not connect to Hugging Face API."
-
-
 
 @app.route("/")
 def index():
