@@ -16,15 +16,16 @@ A simple **Flask-based chatbot** integrated with **Hugging Face Transformers** t
 
 ## ⚡ How to Run  
 
-1. **Clone the repo**  
+1. **Clone the repo**
+   ```bash
    -git clone https://github.com/HaripriyaSPJain/IronLady-chatbot.git
    -cd IronLady-chatbot
-2. **Create a virtual environment**
+3. **Create a virtual environment**
    -python -m venv venv
    -venv\Scripts\activate
-3. **Install dependencies**
+4. **Install dependencies**
    -pip install -r requirements.txt
-4. **Run**
+5. **Run**
    python Chatbot/app.py
 
 ---
