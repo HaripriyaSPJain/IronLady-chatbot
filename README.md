@@ -14,6 +14,20 @@ A simple **Flask-based chatbot** integrated with **Hugging Face Transformers** t
 
 ---
 
+## 🚀 Features  
+
+- Answer common FAQs about Iron Lady programs:
+  - Program types  
+  - Duration  
+  - Mode (online/offline)  
+  - Certificates  
+  - Mentors  
+- Falls back to **Hugging Face model** for general questions  
+- Secure API key storage via `.env` file  
+- Simple web UI with a chatbot interface  
+
+---
+
 ## ⚡ How to Run  
 
 1. **Clone the repo**
