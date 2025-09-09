@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iron Lady Chatbot</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <h2>💬 Iron Lady Chatbot</h2>
+      <p>Ask me about our leadership programs</p>
+    </div>
+
+    <div id="chat-box" class="chat-box"></div>
+
+    <div class="input-container">
+      <input type="text" id="user-input" placeholder="Type your question..." 
+             onkeypress="if(event.key === 'Enter'){sendMessage()}">
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+
+  <script>
+    async function sendMessage() {
+      let inputField = document.getElementById("user-input");
+      let input = inputField.value.trim();
+      if (!input) return;
+
+      let chatBox = document.getElementById("chat-box");
+
+      // User message row with avatar
+      let userMessage = `
+        <div class="chat-row user-row">
+          <div class="chat-bubble user-msg">${input}</div>
+          <div class="avatar user-avatar">🙂</div>
+        </div>`;
+      chatBox.innerHTML += userMessage;
+
+      inputField.value = "";
+
+      // Auto-scroll
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // Send to backend
+      let response = await fetch("/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: input })
+      });
+
+      let data = await response.json();
+
+      // Bot message row with avatar
+      let botMessage = `
+        <div class="chat-row bot-row">
+          <div class="avatar bot-avatar">👩</div>
+          <div class="chat-bubble bot-msg">${data.reply}</div>
+        </div>`;
+      chatBox.innerHTML += botMessage;
+
+      // Auto-scroll again
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
+</body>
+</html>

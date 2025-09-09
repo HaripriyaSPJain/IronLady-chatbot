@@ -1,0 +1,145 @@
+/* 🌸 General Page Setup */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f7c6ff, #c6e7ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* 🗨️ Chat Container */
+.chat-container {
+  width: 400px;
+  max-width: 95%;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 🎨 Header */
+.chat-header {
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+  padding: 15px;
+  color: white;
+  text-align: center;
+}
+.chat-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+.chat-header p {
+  margin: 3px 0 0;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* 💬 Chat Box */
+.chat-box {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 👤 Chat Rows */
+.chat-row {
+  display: flex;
+  align-items: flex-end;
+}
+
+.user-row {
+  justify-content: flex-end;
+}
+
+.bot-row {
+  justify-content: flex-start;
+}
+
+/* 🗯️ Chat Bubbles */
+.chat-bubble {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.user-msg {
+  background: #007bff;
+  color: white;
+  border-bottom-right-radius: 5px;
+  margin-left: 8px;
+}
+
+.bot-msg {
+  background: #e4e6eb;
+  color: #333;
+  border-bottom-left-radius: 5px;
+  margin-right: 8px;
+}
+
+/* 😀 Avatars */
+.avatar {
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-avatar {
+  margin-left: 6px;
+}
+
+.bot-avatar {
+  margin-right: 6px;
+}
+
+/* ⌨️ Input Area */
+.input-container {
+  display: flex;
+  padding: 10px;
+  background: #f0f0f0;
+  border-top: 1px solid #ddd;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+}
+
+.input-container button {
+  margin-left: 10px;
+  border: none;
+  background: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.input-container button:hover {
+  background: #0056b3;
+}
+
+/* ✨ Smooth fade-in effect for messages */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
