@@ -41,7 +41,8 @@ A simple **Flask-based chatbot** integrated with **Hugging Face Transformers** t
 
 <img width="1816" height="925" alt="image" src="https://github.com/user-attachments/assets/659519c0-c3fa-4277-bde2-b481ab628c85" />
 
-<img width="783" height="781" alt="image" src="https://github.com/user-attachments/assets/d9b6ae6e-5724-41cc-9ce7-cdee74e438a9" />
+<img width="1892" height="901" alt="image" src="https://github.com/user-attachments/assets/9a5a6f28-d67a-4003-b96c-1554915da3e6" />
+
 
 ---
 
